@@ -1,5 +1,9 @@
 途中経過
 
 
-https://github.com/Takumi-666/Postman/assets/108921895/0ea2c7ce-612b-494c-a08a-268ee0d2f1ef
+
+https://github.com/Takumi-666/Postman/assets/108921895/e6c301c4-c6d9-4b3d-ae90-5d3d0e87e19f
+
+
+
 
