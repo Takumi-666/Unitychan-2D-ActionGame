@@ -11,7 +11,7 @@ public class PlayFabSubmitter : MonoBehaviour
     public void SubmitScore()
     {
         string username = usernameInput.text;
-        if (username.Length < 2 || username.Length > 8)
+        if (username.Length < 3 || username.Length > 8)
         {
             Debug.Log("ユーザーネームは2文字以上8文字以下でお願いします");
             return;
