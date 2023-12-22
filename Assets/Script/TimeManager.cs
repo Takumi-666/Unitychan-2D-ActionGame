@@ -5,14 +5,14 @@ public class TimeManager : MonoBehaviour
 {
     public Text timerText; // UI Textへの参照
     private float totalTime = 60f; // タイマーの総時間（60秒）
-    private float countdown = 3f; // カウントダウンの時間
+    private float countdown = 5f; // カウントダウンの時間
     private bool isCountingDown = true; // カウントダウン中かどうか
 
     void Start()
     {
         // ゲーム開始時にタイマーを開始
         isCountingDown = true;
-        countdown = 3f; // カウントダウンをリセット
+        countdown = 5f; // カウントダウンをリセット
         totalTime = 60f; // タイマーをリセット
     }
 
