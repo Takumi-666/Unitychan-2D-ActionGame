@@ -34,4 +34,3 @@ public class SelectSound : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 }
-
