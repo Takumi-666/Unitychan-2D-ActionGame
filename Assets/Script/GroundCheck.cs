@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class GroundCheck : MonoBehaviour
 {
+    [Header("エフェクトがついた床を判定するか")] public bool checkPlatformGroud = true;
+
     private string groundTag = "Ground";
+    private string platformTag = "GroundPlatform";
+    private string moveFloorTag = "MoveFloor";
     private bool isGround = false;
     private bool isGroundEnter, isGroundStay, isGroundExit;
 
     //接地判定を返すメソッド
-    //物理判定の更新毎に呼ぶ必要がある
     public bool IsGround()
     {
         if (isGroundEnter || isGroundStay)
@@ -20,7 +22,6 @@ public class GroundCheck : MonoBehaviour
         {
             isGround = false;
         }
-
         isGroundEnter = false;
         isGroundStay = false;
         isGroundExit = false;
@@ -33,6 +34,10 @@ public class GroundCheck : MonoBehaviour
         {
             isGroundEnter = true;
         }
+        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag))
+        {
+            isGroundEnter = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -41,11 +46,19 @@ public class GroundCheck : MonoBehaviour
         {
             isGroundStay = true;
         }
+        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag))
+        {
+            isGroundStay = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == groundTag)
+        {
+            isGroundExit = true;
+        }
+        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag))
         {
             isGroundExit = true;
         }
