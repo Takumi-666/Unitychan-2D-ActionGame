@@ -13,7 +13,7 @@ public class CountdownScript : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        countdownText.text = "はじまるよ！";
+        countdownText.text = "3";
         yield return new WaitForSeconds(1);
         countdownText.text = "3";
         yield return new WaitForSeconds(1);
