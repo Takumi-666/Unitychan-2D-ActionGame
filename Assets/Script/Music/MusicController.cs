@@ -29,7 +29,7 @@ public class MusicController : MonoBehaviour
         audioSource.clip = bgm2;
         audioSource.Play();
 
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(90);
         // BGM3の再生と同時にプレイヤーの入力を無効にする
         audioSource.clip = bgm3;
         audioSource.Play();
