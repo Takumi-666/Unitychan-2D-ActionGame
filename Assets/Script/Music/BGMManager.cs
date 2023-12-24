@@ -41,8 +41,10 @@ int GetSceneNumber(string sceneName)
         case "1StageScene":
             return 1; // ➁のBGM
         case "ScoreScene":
+            return 2; // ➁のBGM
         case "RankingScene":
-            return 2; // ③のBGM
+            return 3; // ③のBGM
+
         default:
             return -1; // 該当しない場合
     }

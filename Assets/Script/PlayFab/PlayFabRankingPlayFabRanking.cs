@@ -30,7 +30,7 @@ public class PlayFabRanking : MonoBehaviour
             {
                 string displayName = item.DisplayName ?? "NoName";
                 names.AppendLine($"{item.Position + 1}位: {displayName}");
-                scores.AppendLine($"スコア {item.StatValue}");
+                scores.AppendLine($"スコア {item.StatValue}円");
             }
 
             // Text UI要素に値を設定
