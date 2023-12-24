@@ -1,25 +1,38 @@
 ﻿using UnityEngine;
-using UnityEngine.UI; // UI要素を使用するために必要
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int score; // スコアを保持する変数
+    public static ScoreManager Instance { get; private set; } // シングルトンインスタンス
     public Text scoreText; // スコアを表示するテキスト
+    public static int score; // スコアを保持する変数
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        //DontDestroyOnLoad(gameObject); // 必要に応じて
+    }
 
     void Start()
     {
-        score = 0; // スコアの初期化
-        UpdateScore(); // スコア表示の更新
+        score = 0;
+        UpdateScore();
     }
 
     public void AddScore(int newScoreValue)
     {
-        score += newScoreValue; // スコアの追加
-        UpdateScore(); // スコア表示の更新
+        score += newScoreValue;
+        UpdateScore();
     }
 
     void UpdateScore()
     {
-        scoreText.text = "Score: " + score; // スコアのテキストを更新
+        scoreText.text = "Score: " + score;
     }
 }

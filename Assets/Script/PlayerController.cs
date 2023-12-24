@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float jumpLimitTime;//ジャンプ制限時間
     public GroundCheck ground; //接地判定
     public GroundCheck head;//頭ぶつけた判定
+    
+    // SpriteRendererコンポーネントのインスタンスを取得
+    private SpriteRenderer spriteRenderer = null;
 
     //プライベート変数
     private Animator anim = null;
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         //コンポーネントのインスタンスを捕まえる
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -75,20 +79,20 @@ public class PlayerController : MonoBehaviour
         }
         if (horizontalKey > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            spriteRenderer.flipX = false;
             anim.SetBool("Run", true);
             xSpeed = speed;
         }
         else if (horizontalKey < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            spriteRenderer.flipX = true;
             anim.SetBool("Run", true);
             xSpeed = -speed;
         }
         else
         {
             anim.SetBool("Run", false);
-            xSpeed = 0.0f;
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
         anim.SetBool("Jamp", isJump); //New
         anim.SetBool("Ground", isGround); //New

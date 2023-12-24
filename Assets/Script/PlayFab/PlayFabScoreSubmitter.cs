@@ -7,13 +7,14 @@ using System.Collections.Generic;
 public class PlayFabSubmitter : MonoBehaviour
 {
     public InputField usernameInput; // ユーザーネーム入力用のInputField
+    public Text messageText; // メッセージを表示するテキスト
 
     public void SubmitScore()
     {
         string username = usernameInput.text;
         if (username.Length < 3 || username.Length > 8)
         {
-            Debug.Log("ユーザーネームは2文字以上8文字以下でお願いします");
+            messageText.text = "名前は2文字以上8文字以下で";
             return;
         }
 

@@ -8,6 +8,6 @@ public class DisplayScore : MonoBehaviour
     void Start()
     {
         // 保存されたスコアを表示
-        scoreText.text = "Score: " + ScoreManager.score;
+        scoreText.text = "Score: " + ScoreManager.score + "円 ";
     }
 }
