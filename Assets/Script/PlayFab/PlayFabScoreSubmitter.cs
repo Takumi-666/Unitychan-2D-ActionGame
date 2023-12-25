@@ -18,8 +18,11 @@ public class PlayFabSubmitter : MonoBehaviour
             return;
         }
 
+        // ユーザー名が適切な長さである場合にのみ、スコアと表示名を更新する
         UpdatePlayerStatistics();
         UpdateDisplayName(username);
+
+        messageText.text = "ランキングに登録しました！";
     }
 
 

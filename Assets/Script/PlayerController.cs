@@ -9,7 +9,10 @@ public class PlayerController : MonoBehaviour
     public float jumpLimitTime;//ジャンプ制限時間
     public GroundCheck ground; //接地判定
     public GroundCheck head;//頭ぶつけた判定
-    
+
+    public AudioClip jumpSound; // ジャンプの効果音
+    private AudioSource audioSource;
+
     // SpriteRendererコンポーネントのインスタンスを取得
     private SpriteRenderer spriteRenderer = null;
 
@@ -28,6 +31,8 @@ public class PlayerController : MonoBehaviour
         //コンポーネントのインスタンスを捕まえる
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        // AudioSourceコンポーネントを取得
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -52,6 +57,8 @@ public class PlayerController : MonoBehaviour
                 jumpPos = transform.position.y; //ジャンプした位置を記録する
                 isJump = true;
                 jumpTime = 0.0f;
+                // 効果音を再生
+                audioSource.PlayOneShot(jumpSound);
             }
             else
             {
